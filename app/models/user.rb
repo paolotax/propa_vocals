@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :sessions, dependent: :destroy
+
   validates :password, length: { minimum: MINIMUM_PASSWORD_LENGTH }
   validates :email, presence: true, uniqueness: true
 
