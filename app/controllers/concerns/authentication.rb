@@ -1,4 +1,4 @@
-module Authentication
+module Authentication 
   def require_authentication
     restore_authentication || request_authentication
   end
@@ -20,5 +20,16 @@ module Authentication
 
   def session_from_cookies
     Session.find_by(id: cookies.signed[:session_id])
+  end
+
+  def sign_out
+    session_from_cookies.destroy!
+    cookies.delete(:session_id)
+  end
+
+  def redirect_if_signed_in
+    if restore_authentication
+      redirect_to root_path, notice: "You are already signed in"
+    end
   end
 end
