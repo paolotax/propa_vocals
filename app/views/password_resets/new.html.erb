@@ -1,10 +1,15 @@
-<h1>Password reset</h1>
+<div class="flex flex-col items-center justify-center h-[calc(100vh-4rem)]">
 
-<%= form_with url: password_reset_path do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
+  <header class="text-center text-4xl font-bold pb-8">
+    <p>Reset Password</p>
+  </header>
 
-  <%= f.submit "Reset password" %>
-<% end %>
+  <%= form_with url: password_reset_path, class: "flex flex-col items-center justify-center text-center space-y-5" do |f| %>
+    <div class="w-full">
+      <%= f.label :email, "Inserisci il tuo indirizzo email", class: "text-lg" %>
+      <%= f.email_field :email, class: "w-full text-center text-xl font-bold border-dashed border-t-0 border-x-0 focus:border-t-0 focus:border-x-0 focus:ring-0 outline-none" %>
+    </div>
+
+    <%= f.submit "Reset password", class: "px-3.5 py-1.5 text-lg font-semibold text-white rounded rounded-full bg-indigo-600" %>
+  <% end %>
+</div>

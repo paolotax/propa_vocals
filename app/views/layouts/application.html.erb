@@ -24,20 +24,20 @@
   </head>
 
   <body>
-    <header>
+    <header class="bg-gray-800 text-white p-4">
       <nav>
-        <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
-          <li><%= link_to "Edit password", edit_password_path %></li>
-          <li><%= link_to "Sign in", new_session_path %></li>
-          <li><%= link_to "Sign up", new_registration_path %></li>
-          <li><%= button_to "Sign out", session_path, method: :delete %></li>
+        <ul class="flex justify-center space-x-4">
+          <li><%= link_to "Home", root_path, class: "hover:text-gray-300" %></li>
+          <li><%= link_to "Dashboard", dashboard_path, class: "hover:text-gray-300" %></li>
+          <li><%= link_to "Edit password", edit_password_path, class: "hover:text-gray-300" %></li>
+          <li><%= link_to "Sign in", new_session_path, class: "hover:text-gray-300" %></li>
+          <li><%= link_to "Sign up", new_registration_path, class: "hover:text-gray-300" %></li>
+          <li><%= button_to "Sign out", session_path, method: :delete, class: "hover:text-gray-300 bg-transparent" %></li>
         </ul>
       </nav>
     </header>
 
-    <main class="container mx-auto mt-28 px-5 xl:w-1/2 flex flex-col">
+    <main>
 
       <% if notice.present? %>
         <p class="mx-auto py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block"><%= notice %></p>

@@ -1,17 +1,20 @@
-<h1>Reset your password</h1>
+<div class="flex flex-col items-center justify-center h-[calc(100vh-4rem)]">
 
-<%= form_with scope: :password_reset, url: password_reset_path, method: :patch do |f| %>
-  <%= hidden_field_tag :password_reset_token, params[:password_reset_token] %>
+  <header class="text-center text-4xl font-bold pb-8">
+    <p>Change Password</p>
+  </header>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+  <%= form_with url: password_reset_path(params[:id]), method: :patch, class: "flex flex-col items-center justify-center text-center space-y-5" do |f| %>
+    <div class="w-full">
+      <%= f.label :password, "Nuova password", class: "text-lg" %>
+      <%= f.password_field :password, class: "w-full text-center text-xl font-bold border-dashed border-t-0 border-x-0 focus:border-t-0 focus:border-x-0 focus:ring-0 outline-none" %>
+    </div>
+    <div class="w-full h-3"></div>
+    <div class="w-full">
+      <%= f.label :password_confirmation, "Conferma nuova password", class: "text-lg" %>
+      <%= f.password_field :password_confirmation, class: "w-full text-center text-xl font-bold border-dashed border-t-0 border-x-0 focus:border-t-0 focus-border-x-0 focus:ring-0 outline-none" %>
+    </div>
 
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <%= f.submit "Reset password" %>
-<% end %>
+    <%= f.submit "Change password", class: "px-3.5 py-1.5 text-lg font-semibold text-white rounded rounded-full bg-indigo-600" %>
+  <% end %>
+</div>
